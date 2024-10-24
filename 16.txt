@@ -1,0 +1,9 @@
+from functools import *
+
+@lru_cache(None)
+def f(n):
+    pass
+
+for _ in range(x1,X2):
+    f(_)
+print()
