@@ -5,8 +5,8 @@ def f(x,y,w,z):
 
 for x1,x2,x3 in product([0,1],repeat=3):
     t=(
-        () table with F expl: (0,1,x1,1)
-	()
+        (), #table with F expl: (0,1,x1,1), # Там где пропуски пишем xN где N это какой пропуск. Так что если пропусков 2 то последний x2 
+	(),
 	()
     ) 
     if len(t) == len(set(t)):
