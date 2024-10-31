@@ -4,6 +4,6 @@ from functools import *
 def f(n):
     pass
 
-for _ in range(x1,X2):
+for _ in range(x1,x2): 
     f(_)
 print()
