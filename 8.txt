@@ -1,0 +1,8 @@
+from itertools import product
+
+
+alphabet=sorted(["А","К","У","Р"]) # Буквы будут сортированны в алфавитном порядке
+combinations=[]
+for p in product(alphabet,repeat=5): # Repeat = количество букв в словах. 
+    combinations.append(p)
+print("".join(combinations[349])) # Нужное место в слове -1 
