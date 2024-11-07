@@ -6,7 +6,8 @@ mask="255.255.255.255" # Маска сети
 
 network=IPv4Network(f"{nethost}/{mask}") # Создание сети зная маску и адрес хоста
 network.hosts() # Список хостов в этой сети. Для перевода в bin нужно записать bin(int(iphost)). Для получения адресов нужно пройтись по списку for p in network.hosts() 
-network=IPv4Network((network,16),strict=False) # Создание списка адресов зная хост, 16 - perfix или число единичек в двоичной записи маски 
+prefix=bin(int(IPv4Address(f"{mask}"))).count("1")# Поиск перфекса макси для сети. Объект IPv4Address нужно перевести в int и после брать bin, по другому нельзя.
+network=IPv4Network((network,16),strict=False) # Создание списка адресов зная хост,  perfix - число единичек в двоичной записи маски 
 ip=IPv4Address("IP") # НУЖНАЯ ШТУКА Переобразование ip адресса из строки в объект. Если пропустить то if ip in network не будет истиной. 
 
 # Функция для подбора маски
