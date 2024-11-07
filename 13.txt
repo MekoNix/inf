@@ -1,0 +1,26 @@
+from ipaddress import *
+
+
+nethost="174.114.120.0" # Сеть хоста 
+mask="255.255.255.255" # Маска сети
+
+network=IPv4Network(f"{nethost}/{mask}") # Создание сети зная маску и адрес хоста
+network.hosts() # Список хостов в этой сети. Для перевода в bin нужно записать bin(int(iphost)). Для получения адресов нужно пройтись по списку for p in network.hosts() 
+network=IPv4Network((network,16),strict=False) # Создание списка адресов зная хост, 16 - perfix или число единичек в двоичной записи маски 
+ip=IPv4Address("IP") # НУЖНАЯ ШТУКА Переобразование ip адресса из строки в объект. Если пропустить то if ip in network не будет истиной. 
+
+# Функция для подбора маски
+
+def find_subnet_mask(network_ip, host_ip):
+    number_of_masks = 0
+    network_ip = IPv4Address(network_ip) 
+    host_ip = IPv4Address(host_ip)
+    print(network_ip,host_ip)
+    for prefix in range(32, 0, -1):  # Перебор длины префикса от 32 до 1
+        network = IPv4Network((network_ip, prefix), strict=False)
+        if host_ip in network:
+            number_of_masks+=1
+    return number_of_masks
+
+
+print(find_subnet_mask(network_ip,host_ip))
