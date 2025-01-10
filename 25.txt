@@ -1,0 +1,65 @@
+from fnmatch import *
+
+# решето Эратосфена
+is_prime = [True] * 10**5
+is_prime[0] = False
+is_prime[1] = False
+for i in range(2, len(is_prime)):
+    if is_prime[i]:
+        for j in range(i + i, len(is_prime)):
+            is_prime[j] = False
+
+
+primes = []
+for i in range(len(is_prime)):
+    if is_prime[i]:
+        primes.append(i)
+
+
+# все делители числа
+def get_divs(n):
+    res = set()
+    for i in range(2, n):
+        if n % i == 0:
+            res.add(i)
+            res.add(n // i)
+    
+    return res
+
+
+def prime4(number):
+    div_count=0
+    
+    mx = 1
+    for div in primes:
+        if div > number:
+            break
+    
+        if number % div == 0:
+            while number % div == 0:
+                number //= div
+    
+            div_count += 1
+            mx = max(mx, div)
+
+    return div_count, mx
+
+
+mask="34?8*9"
+
+3408009 <= 10**7
+
+for number in range(1,10**7, 2):
+    if fnmatch(str(number), mask):
+        cnt, mx = prime4(number)
+        if cnt > 4:
+            print(f"1: {number} 2: {mx}")
+
+
+for c1 in '0123456789':
+    for c2 in ['', *list('0123456789')]:
+        for c3 in ['', *list('0123456789')]:
+            num = f'34{c1}8{c2}{c3}9'
+            cnt, mx = prime4(number)
+            if cnt > 4:
+                print(f"1: {number} 2: {mx}")
