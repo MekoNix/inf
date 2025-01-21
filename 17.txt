@@ -1,0 +1,13 @@
+with open("17.txt", "r") as file:
+    ar = [int(i.rstrip()) for i in file.readlines()]
+
+
+for i in ar:
+    100 <= abs(i) <= 999 # Поиск трех значнонго  and abs(i) % 100 == 11:
+        mn = min(mn, i)
+
+
+
+for  p1, p2 in zip(ar, ar[1:]) # Zip для получения 1 и 2 элемента 
+	pass 
+print(count, summ_max)
