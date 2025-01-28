@@ -1,8 +1,16 @@
-from string import digits,ascii_letters
+# NxW190​+ YyAR190
 
+def base10(ar): # ar нужно ввиде a = [number_by_char("A"), x, number_by_char("N")] для перевода из NxA в число. НУЖНО ЗАПИСАТЬ В ОБРАТНОМ ПОРЯДКЕ ЧИСЛО ДЛЯ ПЕРЕВОДА В 10 СИСТЕМУ
+    res = 0
+    for i, num in enumerate(ar):
+        res += num * 190 ** i
+    return res
 
-alphabet=digits+ascii_letters[:13]
+def number_by_char(char):
+    return int(f"{char}", 36)
 
-for x in alphabet:
-    var= # 142x13 в 15 степени Можно записать как int("142"+x+"13",15) или int(f"142{x}13",15) 
-    
+def calc(x, y):
+    a = [int('W', 36), x, int('N', 36)] 
+    b = [int("R", 36), int("A", 36), y, int("Y", 36)]
+    a = base10(a)
+    b = base10(b)
