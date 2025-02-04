@@ -1,9 +1,9 @@
 # NxW190​+ YyAR190
 
-def base10(ar): # ar нужно ввиде a = [number_by_char("A"), x, number_by_char("N")] для перевода из NxA в число. НУЖНО ЗАПИСАТЬ В ОБРАТНОМ ПОРЯДКЕ ЧИСЛО ДЛЯ ПЕРЕВОДА В 10 СИСТЕМУ
+def base10(ar, base): # ar нужно ввиде a = [number_by_char("A"), x, number_by_char("N")] для перевода из NxA в число. НУЖНО ЗАПИСАТЬ В ОБРАТНОМ ПОРЯДКЕ ЧИСЛО ДЛЯ ПЕРЕВОДА В 10 СИСТЕМУ # base это изначальная система счисления
     res = 0
     for i, num in enumerate(ar):
-        res += num * 190 ** i
+        res += num * base ** i
     return res
 
 def number_by_char(char):
