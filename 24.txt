@@ -1,0 +1,48 @@
+# # s = open('24.txt').readline()
+
+# s = 'SQRPSQRPS' + 'RP' + 'Q' + 'SQRPSQRPSQ'
+#     55 srpq 55555555 sq
+
+
+
+# next_char = {
+#     'S': 'Q',
+#     'Q': 'R',
+#     'R': 'P',
+#     'P': 'S'
+# }
+
+# prev_ch = ''
+# cur_len = 0
+# cur_s = ''
+# res = 0
+# for ch in s:
+#     if prev_ch == '' or ch == next_char[prev_ch]:
+#         cur_s += ch
+#         cur_len += 1
+#     else:
+#         print(cur_s)
+        
+#         cur_s = ch
+#         cur_len = 1
+        
+#     prev_ch = ch
+#     res = max(res, cur_len)
+# print(cur_s)
+
+# print(res)
+
+
+# 'SQRP' -> 5
+
+
+# 'E' +  "NDNDNDNDNDDDDDNNNNNDDDNDNDNNN" + 'E'
+
+s="EDDXEDNAEEYXYNNEDXNAAAEDDNDXXXAAAEYAYEYDXEADENDDAYNDYNYDE"
+
+max_answer = 0
+s = s.replace('Y', '0').replace('A', '0').replace('X', '0')
+s = s.split("E")
+for sub_s in s[1:-1]:
+    if '0' not in sub_s:
+        max_answer=max(len(sub_s)+2,max_answer)
