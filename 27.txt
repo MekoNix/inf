@@ -1,0 +1,13 @@
+def dist(p1,p2):
+	return dist var
+
+def generate_cluster2():
+    cluster = [data.pop()]
+    for p in cluster:
+        neighbours = []
+        for p1 in data:
+            if dist(p, p1) < 2:
+                neighbours.append(p1)
+        for p1 in neighbours:
+            data.remove(p1)
+        clusters += neighbours
