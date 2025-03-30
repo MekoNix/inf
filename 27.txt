@@ -1,4 +1,4 @@
-with open("V3Zas1Wiy6.txt") as f:
+with open("") as f:
     data = [tuple(map(float, line.replace("," , ".").split())) for line in f.readlines()]
 
 def dist(p1,p2):
