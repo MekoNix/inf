@@ -1,13 +1,21 @@
-def dist(p1,p2):
-	return dist var
+with open("V3Zas1Wiy6.txt") as f:
+    data = [tuple(map(float, line.replace("," , ".").split())) for line in f.readlines()]
 
-def generate_cluster2():
+def dist(p1,p2):
+    return ((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2) ** 0.5
+
+
+def generate_cluster():
     cluster = [data.pop()]
     for p in cluster:
-        neighbours = []
+        neigh = []
         for p1 in data:
-            if dist(p, p1) < 2:
-                neighbours.append(p1)
-        for p1 in neighbours:
+            if dist(p, p1) < 1:
+                neigh.append(p1)
+        for p1 in neigh:
             data.remove(p1)
-        clusters += neighbours
+        cluster += neigh
+    return cluster
+clusters = []
+while data:
+    clusters.append(generate_cluster())
