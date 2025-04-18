@@ -3,11 +3,8 @@ from turtle import *
 
 multi = 10
 tracer(0)
-#----------Программа-------------------
 
 
-
-#-----------Конец----------------------
 up()
 for x in range(x1,x2):
 	for y in range(y1,y2):
