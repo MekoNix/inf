@@ -1,0 +1,19 @@
+lb, rb = 36, 75
+lc, rc = 60, 110
+min_len = 10**10
+
+def in_cut(x, l, r):
+    return l <= x <= r
+
+def check(la, ra):
+    for x in range(-10, 200):
+        if not ((not(in_cut(x, la, ra))) <= (in_cut(x, lb, rb) == in_cut(x, lc, rc))):
+            return False
+    return True
+
+for la in range(0, 150):
+    for ra in range(la, 150):
+        if check(la, ra):
+            min_len = min(min_len, ra - la)
+
+print(min_len)
